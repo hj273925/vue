@@ -1,18 +1,50 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import WorkOrder from '@/components/NoticeList'
-import WorkDetail from '@/components/WorkDetail'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [{
     path: '/',
-    name: 'WorkOrder',
-    component: WorkOrder
+    name: 'home',
+    component: function (resolve) {
+      require(['@/components/home'], resolve)
+    }
   }, {
-    path: '/workdetail',
-    name: 'WorkDetail',
-    component: WorkDetail
+    path: '/foots',
+    name: 'foots',
+    component: function (resolve) {
+      require(['@/components/foots'], resolve)
+    }
+  }, {
+    path: '/space',
+    name: 'space',
+    component: function (resolve) {
+      require(['@/components/space'], resolve)
+    }
+  }, {
+    path: '/future',
+    name: 'future',
+    component: function (resolve) {
+      require(['@/components/future'], resolve)
+    }
+  }, {
+    path: '/talk/:id',
+    name: 'talk',
+    component: function (resolve) {
+      require(['@/components/story/talk'], resolve)
+    }
+  }, {
+    path: '/first/:id',
+    name: 'first',
+    component: function (resolve) {
+      require(['@/components/memory/first'], resolve)
+    }
+  }, {
+    path: '/message',
+    name: 'message',
+    component: function (resolve) {
+      require(['@/components/message/message'], resolve)
+    }
   }]
 })
