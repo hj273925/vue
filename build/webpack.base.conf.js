@@ -14,7 +14,7 @@ const webpackConfig = module.exports = {
   },
   output: {
     path: config.build.assetsRoot,
-    filename: '[name].js',
+    filename: '[hash].js',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath
@@ -45,6 +45,10 @@ const webpackConfig = module.exports = {
       {
         test: /\.less$/,
         loader: 'style!css!less'
+      },
+      {
+        test: /\.scss$/,
+        loader: 'style!css!sass'
       },
       {
         test: /\.js$/,
@@ -82,8 +86,9 @@ const webpackConfig = module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       }
-    ]
-  }
+    ],
+  },
+  // plugins: ["transform-decorators-legacy"]
 }
 module.exports = vuxLoader.merge(webpackConfig, {
   plugins: [{

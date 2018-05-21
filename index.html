@@ -2,8 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>vue</title>
+    <script type="text/javascript">
+      const deviceWidth = screen.width,
+      dpr = 1/window.devicePixelRatio,
+      fontSize = deviceWidth*window.devicePixelRatio/10;
+      window.document.documentElement.style.fontSize = fontSize + 'px';
+      document.write("<meta name='viewport' content='initial-scale="+dpr+",minimum-scale="+dpr+",maximum-scale="+dpr+",user-scalable=no' />");
+    </script>
   </head>
   <body style="background-color:#f0f0f0">
     <div id="app"></div>

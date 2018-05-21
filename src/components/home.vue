@@ -10,7 +10,7 @@
         </p>
     </div>
     <div class="content">
-      <router-link :to = "{ name: 'first', params: { id: 123 }}" v-for="item in list">
+      <router-link :to = "{ name: 'first', params: { id: 123 }}" v-for="item in list" :key = 'item.title'>
         <div style="margin: 10px;overflow: hidden;"  >
           <masker style="border-radius: 2px;">
             <div class="m-img" :style="{backgroundImage: 'url(' + item.img + ')'}" style="height: 15vh"></div>
@@ -31,15 +31,7 @@
 
 <script>
   import {Swiper, Clocker, Divider, Marquee, MarqueeItem, Masker} from 'vux'
-  var Time = {
-    props: {
-      time: {
-        type: String,
-        required: true
-      }
-    },
-    template: '<div>asdasas</div>'
-  }
+  import td1 from '../assets/cxj/td1.jpg'
   export default {
     name: 'home',
     components: {
@@ -48,15 +40,14 @@
       Divider,
       Marquee,
       MarqueeItem,
-      Masker,
-      'hc-time': Time
+      Masker
     },
     data() {
       return {
-        time: '2017-12-13',
+        time: '2018-12-11',
         list: [{
           title: '第一次相遇！',
-          img: 'https://static.vux.li/demo/3.jpg',
+          img: td1,
           time: '2011-12-11'
         }, {
           title: '第一次牵手！',
@@ -69,7 +60,7 @@
         }],
         img_list: [{
           url: '/workdetail',
-          img: 'https://static.vux.li/demo/1.jpg',
+          img: td1,
           title: ''
         }, {
           url: '/workdetail',
@@ -106,7 +97,8 @@
     color: red;
   }
   .content{
-
+    height: calc(100vh - 317px);
+    overflow: scroll;
   }
   .m-img{
     background-size: 100% 100%;
